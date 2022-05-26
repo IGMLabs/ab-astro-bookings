@@ -100,4 +100,10 @@ export class AppComponent {
     this.reloading = true;
     console.log('Reloading...' + list);
   }
+  public getClassForStatus(status: string) {
+    if (status === 'Confirmed') {
+      return 'green';
+    }
+    return 'orange';
+  }
 }
