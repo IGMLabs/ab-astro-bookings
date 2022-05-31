@@ -3,34 +3,7 @@
     <app-header></app-header>
   </header>
   <main>
-    <article>
-      <h3> Working with {{ getAgenciesLength() }} agencies </h3>
-      <ul>
-        <li *ngFor="let agency of agencies">
-          <span [ngClass]="agency.status | lowercase">{{ agency.name }}</span>
-          <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital  ">
-          </ng-container>
-          <ng-template #interplanetary> 💫 </ng-template>
-          <ng-template #orbital> 🌎 </ng-template>
-          <!-- <span *ngIf="agency.range==='Interplanetary'"> 💫 </span>
-          <span *ngIf="agency.range==='Orbital'"> 🌎 </span> -->
-        </li>
-      </ul>
-      <button (click)="reload('agencies')"> ♻️ </button>
-    </article>
-    <article>
-      <h3>Offering with {{ trips.length }} trips</h3>
-      <ul>
-        <li *ngFor="let trip of trips">
-          <span [ngClass]="getClassForStatus(trip.status)">{{ trip.destination }}</span>
-          <ng-container *ngIf="trip.kind==='WithStay' then withStay; else tripOnly"></ng-container>
-          <ng-template #withStay> 🧳 </ng-template>
-          <ng-template #tripOnly> 🧑🏼‍🚀 </ng-template>
-        </li>
-      </ul>
-      <button (click)="reload('trips')"> ♻️ </button>
-    </article>
-    <aside *ngIf="reloading"> ♻️ Reloading </aside>
+    <app-home-page></app-home-page>
     <!-- <router-outlet></router-outlet> -->
   </main>
   <footer>
