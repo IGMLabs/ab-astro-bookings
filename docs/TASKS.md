@@ -48,7 +48,7 @@
 ## 3. Routes
 
 - [x] Route for home page (/) bind to HomeComponent
-- [ ] Route for an about page (`/about`) bind lazy to AboutModule
+- [x] Route for an about page (`/about`) bind lazy to AboutModule
 - [ ] Route for a register page (`auth/register`) bind lazy to RegisterModule
 - [ ] Route for an agencies page (`/agencies`) bind lazy to AgenciesModule
 - [ ] Use a shared agencies list component on the agencies page

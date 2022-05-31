@@ -25,7 +25,7 @@ ng g c shared/reloading --export
 ## 3. Router
 
 ```bash
-
+ng g m about --route=about --module=app
 
 
 ```
