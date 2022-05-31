@@ -93,6 +93,7 @@ export class AppComponent {
     },
   ];
   public reloading = false;
+
   public getAgenciesLength() {
     return this.agencies.length;
   }
