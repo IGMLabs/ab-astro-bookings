@@ -33,14 +33,14 @@
 
 - [x] Create a Core module
 - [x] Move the header node to the Core module
-- [ ] Move the title node to a new private component
-- [ ] Use the Title component in the header
+- [x] Move the title node to a new private component
+- [x] Use the Title component in the header
+- [ ] Create a Home module
+- [ ] Move the main node to the Home component
 
 > Student tasks:
 
 - [ ] Move the footer node to the Core module
 - [ ] Use the Title component in the footer
-- [ ] Create a Home module
-- [ ] Move the main node to the Home component
 - [ ] Create a Shared module
 - [ ] Move the reloading content to a component on the Shared module
