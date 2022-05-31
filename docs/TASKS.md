@@ -32,7 +32,7 @@
 ## 2. Modules
 
 - [x] Create a Core module
-- [ ] Move the header node to the Core module
+- [x] Move the header node to the Core module
 - [ ] Move the title node to a new private component
 - [ ] Use the Title component in the header
 
