@@ -15,4 +15,7 @@ npm install @picocss/pico
 ng g m core
 ng g c core/header --export
 ng g c core/title
+
+ng g c core/footer --export
+
 ```
