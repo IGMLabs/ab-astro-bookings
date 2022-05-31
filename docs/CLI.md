@@ -26,6 +26,7 @@ ng g c shared/reloading --export
 
 ```bash
 ng g m about --route=about --module=app
-
+ng g m contact --route=contact --module=app
+ng g c contact --type=page
 
 ```
