@@ -18,4 +18,14 @@ ng g c core/title
 
 ng g c core/footer --export
 
+ng g m shared
+ng g c shared/reloading --export
+```
+
+## 3. Router
+
+```bash
+
+
+
 ```
