@@ -36,4 +36,6 @@ ng g c auth/register --type=page
 ng g m auth/login --route=auth/login --module=app
 ng g c auth/login --type=page
 
+ng g m agencies --route=agencies --module=app
+ng g c agencies --type=page
 ```
