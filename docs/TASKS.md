@@ -52,14 +52,14 @@
 - [x] Route for a register page (`auth/register`) bind lazy to RegisterModule
 - [x] Route for an agencies page (`/agencies`) bind lazy to AgenciesModule
 - [x] Use a shared agencies list component on the agencies page
-- [ ] Route for an agency page (`/agencies/:id`) bind lazy to AgencyModule
-- [ ] Use an agency details component on the agency page
+- [x] Route for an agency page (`/agencies/agency/:id`) bind lazy to AgencyModule
+- [x] Use an agency details component on the agency page
 
 > Student tasks:
 
 - [x] Route for an about page (`/contact`) bind lazy to ContactModule
 - [x] Route for a login page (`auth/login`) bind lazy to LoginModule
-- [ ] Route for a trips page (`/trips`) bind lazy to TripsModule
-- [ ] Use a shared trips list component on the trips page
-- [ ] Route for a trip page (`/trips/:id`) bind lazy to TripModule
+- [x] Route for a trips page (`/trips`) bind lazy to TripsModule
+- [x] Use a shared trips list component on the trips page
+- [ ] Route for a trip page (`/trips/trip/:id`) bind lazy to TripModule
 - [ ] Use a trip details component on the trip page
