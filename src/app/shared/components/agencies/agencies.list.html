@@ -2,13 +2,12 @@
   <h3> Working with {{ getAgenciesLength() }} agencies </h3>
   <ul>
     <li *ngFor="let agency of agencies">
-      <span [ngClass]="agency.status | lowercase">{{ agency.name }}</span>
+      <a [routerLink]="['/','agencies','agency',agency.id ]"
+         [ngClass]="agency.status | lowercase">{{ agency.name }}</a>
       <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital  ">
       </ng-container>
       <ng-template #interplanetary> 💫 </ng-template>
       <ng-template #orbital> 🌎 </ng-template>
-      <!-- <span *ngIf="agency.range==='Interplanetary'"> 💫 </span>
-          <span *ngIf="agency.range==='Orbital'"> 🌎 </span> -->
     </li>
   </ul>
   <button (click)="reload('agencies')"> ♻️ </button>
