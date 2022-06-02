@@ -50,8 +50,8 @@
 - [x] Route for home page (/) bind to HomeComponent
 - [x] Route for an about page (`/about`) bind lazy to AboutModule
 - [x] Route for a register page (`auth/register`) bind lazy to RegisterModule
-- [ ] Route for an agencies page (`/agencies`) bind lazy to AgenciesModule
-- [ ] Use a shared agencies list component on the agencies page
+- [x] Route for an agencies page (`/agencies`) bind lazy to AgenciesModule
+- [x] Use a shared agencies list component on the agencies page
 - [ ] Route for an agency page (`/agencies/:id`) bind lazy to AgencyModule
 - [ ] Use an agency details component on the agency page
 

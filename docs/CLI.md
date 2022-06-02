@@ -38,4 +38,7 @@ ng g c auth/login --type=page
 
 ng g m agencies --route=agencies --module=app
 ng g c agencies --type=page
+ng g c shared/components/agencies --export --type=list
+
+
 ```
