@@ -2,7 +2,7 @@
   <h3> Working with {{ getAgenciesLength() }} agencies </h3>
   <ul>
     <li *ngFor="let agency of agencies">
-      <a [routerLink]="['/','agencies','agency',agency.id ]"
+      <a [routerLink]="['/','agencies','agency', agency.id ]"
          [ngClass]="agency.status | lowercase">{{ agency.name }}</a>
       <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital  ">
       </ng-container>
