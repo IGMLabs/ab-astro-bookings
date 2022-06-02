@@ -47,4 +47,7 @@ ng g c shared/components/trips --export --type=list
 ng g m agencies/agency --module=agencies --route=agency/:id
 ng g c agencies/agency --type=page
 
+
+ng g m trips/trip --m=trips --route=trip/:id
+ng g c trips/trip --type=page
 ```
