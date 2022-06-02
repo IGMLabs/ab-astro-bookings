@@ -61,3 +61,14 @@
 - [x] Route for a trips page (`/trips`) bind lazy to TripsModule
 - [x] Use a shared trips list component on the trips page
 - [x] Route for a trip page (`/trips/trip/:id`) bind lazy to TripModule
+
+## 4. Forms
+
+- [ ] Create a form for the contact page
+- [ ] Create a form for the register page
+- [ ] Create a form for a new Agency
+
+> Student tasks:
+
+- [ ] Create a form for the login page
+- [ ] Create a form for a new Trip

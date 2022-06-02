@@ -51,3 +51,9 @@ ng g c agencies/agency --type=page
 ng g m trips/trip --m=trips --route=trip/:id
 ng g c trips/trip --type=page
 ```
+
+## 4. Forms
+
+```bash
+ng g c contact --type=form
+```
