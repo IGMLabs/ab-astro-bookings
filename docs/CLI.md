@@ -32,4 +32,8 @@ ng g c contact --type=page
 
 ng g m auth/register --route=auth/register -m=app
 ng g c auth/register --type=page
+
+ng g m auth/login --route=auth/login --module=app
+ng g c auth/login --type=page
+
 ```

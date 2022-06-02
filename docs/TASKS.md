@@ -58,7 +58,7 @@
 > Student tasks:
 
 - [x] Route for an about page (`/contact`) bind lazy to ContactModule
-- [ ] Route for a login page (`auth/login`) bind lazy to LoginModule
+- [x] Route for a login page (`auth/login`) bind lazy to LoginModule
 - [ ] Route for a trips page (`/trips`) bind lazy to TripsModule
 - [ ] Use a shared trips list component on the trips page
 - [ ] Route for a trip page (`/trips/:id`) bind lazy to TripModule
