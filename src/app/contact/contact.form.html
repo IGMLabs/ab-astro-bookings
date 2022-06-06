@@ -1,13 +1,12 @@
 <form [formGroup]="form">
   <div>
-    <label for="name">Name<small *ngIf="form.get('name')?.invalid">⭕</small></label>
+    <label for="name">Name<small *ngIf="hasError('name')">⭕</small></label>
     <input type="text"
            id="name"
            name="name"
            formControlName="name"
            placeholder="Your name">
-    <small *ngIf="form.get('name')?.invalid && form.get('name')?.touched">🔥 Field is required
-    </small>
+    <small *ngIf="mustShowMessage('name')">{{ getErrorMessage('name') }} </small>
   </div>
   <button [disabled]="form.invalid"
           (click)="onSave()">Save</button>
