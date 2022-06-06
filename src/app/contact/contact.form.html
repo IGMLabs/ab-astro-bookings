@@ -1,10 +1,14 @@
-<form>
+<form [formGroup]="form">
   <div>
-    <label for="name">Name</label>
+    <label for="name">Name<small *ngIf="form.get('name')?.invalid">⭕</small></label>
     <input type="text"
            id="name"
            name="name"
+           formControlName="name"
            placeholder="Your name">
+    <small *ngIf="form.get('name')?.invalid && form.get('name')?.touched">🔥 Field is required
+    </small>
   </div>
-  <button>Save</button>
+  <button [disabled]="form.invalid"
+          (click)="onSave()">Save</button>
 </form>
