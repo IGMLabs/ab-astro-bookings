@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+  <div>
+    <label for="name"> Agency name</label>
+    <input name="name"
+           type="text"
+           formControlName="name"
+           [attr.aria-invalid]="hasError('name')">
+    <small *ngIf="mustShowMessage('name')">{{ getErrorMessage('name') }}</small>
+  </div>
+  <div>
+    <label for="range"> Operation range</label>
+    <select name="range"
+            formControlName="range">
+      <option value="">Select a range</option>
+      <option *ngFor="let range of ranges"
+              [value]="range.id">{{ range.name }}</option>
+    </select>
+    <small *ngIf="mustShowMessage('range')">{{ getErrorMessage('range') }}</small>
+  </div>
+  <div>
+    <label for="status"> Operative status</label>
+    <span *ngFor="let status of statuses">
+      <label for="status-{{status | lowercase}}">{{ status }}</label>
+      <input name="status"
+             id="status-{{status | lowercase}}"
+             type=radio
+             formControlName="status"
+             [value]="status">
+    </span>
+  </div>
+  <!-- <select>
+    <option>orbital</option>
+  </select>
+  <input type="radio"> Pending
+  <input type="radio"> Accepted -->
+  <button [disabled]="form.invalid"
+          (click)="onSave()">Save</button>
+</form>
