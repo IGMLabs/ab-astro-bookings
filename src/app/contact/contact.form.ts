@@ -24,6 +24,12 @@ export class ContactForm implements OnInit {
   constructor(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      message: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(50),
+      ]),
     });
   }
 
@@ -46,8 +52,12 @@ export class ContactForm implements OnInit {
     const errors = control.errors;
     let errorMessage = '';
     errorMessage += errors['required'] ? '🔥 Field is required' : '';
+    errorMessage += errors['email'] ? '🔥 Should be an email address' : '';
     errorMessage += errors['minlength']
       ? `🔥 More than ${errors['minlength'].requiredLength} chars`
+      : '';
+    errorMessage += errors['maxlength']
+      ? `🔥 Less than ${errors['maxlength'].requiredLength} chars`
       : '';
     return errorMessage;
   }
