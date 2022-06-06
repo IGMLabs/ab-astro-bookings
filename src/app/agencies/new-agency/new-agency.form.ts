@@ -18,7 +18,7 @@ export class NewAgencyForm implements OnInit {
     { id: 'Orbital', name: '🌎 Orbiting around the earth' },
     {
       id: 'Interplanetary',
-      name: '🌕 To the moon and other plantes',
+      name: '🌕 To the moon and other planets',
     },
     { id: 'Interstellar', name: '💫 Traveling to other stars' },
   ];
@@ -55,8 +55,16 @@ export class NewAgencyForm implements OnInit {
       : ' ';
     return errorMessage;
   }
-  onSave() {
-    console.warn('Send agency data ', this.form.value);
+
+  public onSubmitClick() {
+    const { name, range, status } = this.form.value;
+    const id = this.getDashId(name);
+    const newAgencyData = { id, name, range, status };
+    console.warn('Send agency data ', newAgencyData);
+  }
+
+  private getDashId(str: string): string {
+    return str.toLocaleLowerCase().replace(/ /g, '-');
   }
 
   private getControl(controlName: string): AbstractControl | null {
