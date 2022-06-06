@@ -56,4 +56,5 @@ ng g c trips/trip --type=page
 
 ```bash
 ng g c contact --type=form
+ng g c auth/register --type=form
 ```
