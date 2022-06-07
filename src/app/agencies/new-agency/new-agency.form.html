@@ -18,7 +18,9 @@
         <option selected
                 value="">Select a range</option>
         <option *ngFor="let range of ranges"
-                [value]="range.id">{{ range.name }}</option>
+                [value]="range.id">
+          {{ range.name }}
+        </option>
       </select>
       <small *ngIf="mustShowMessage('range')">{{ getErrorMessage('range') }}</small>
     </div>
