@@ -4,9 +4,9 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
 
 @Component({
   selector: 'app-register-form',
@@ -16,7 +16,7 @@ import {
 export class RegisterForm implements OnInit {
   public form: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, fvs: FormValidationsService) {
     this.form = formBuilder.group(
       {
         name: new FormControl('', [
@@ -37,25 +37,9 @@ export class RegisterForm implements OnInit {
         acceptTerms: new FormControl(false, [Validators.requiredTrue]),
       },
       {
-        validators: [this.passwordMatch],
+        validators: [fvs.passwordMatch],
       }
     );
-  }
-
-  private passwordMatch(form: AbstractControl): ValidationErrors | null {
-    const password = form.get('password');
-    const confirmPassword = form.get('confirmPassword');
-    if (!password || !confirmPassword) {
-      return {
-        passwordMatch: 'No passwords provided',
-      };
-    }
-    if (password.value !== confirmPassword.value) {
-      return {
-        passwordMatch: 'Passwords don´t match!',
-      };
-    }
-    return null;
   }
 
   public hasError(controlName: string): boolean {

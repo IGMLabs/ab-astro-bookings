@@ -4,9 +4,9 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
 
 /**
  *
@@ -51,7 +51,7 @@ export class NewTripForm implements OnInit {
     },
   ];
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, fvs: FormValidationsService) {
     this.form = formBuilder.group(
       {
         agencyId: new FormControl('', [Validators.required]),
@@ -69,7 +69,7 @@ export class NewTripForm implements OnInit {
         endDate: new FormControl('03/08/2002'),
       },
       {
-        validators: [this.datesRange],
+        validators: [fvs.datesRange],
       }
     );
   }
@@ -111,22 +111,6 @@ export class NewTripForm implements OnInit {
     const id = this.getDashId(agencyId + ' ' + destination);
     const newTripData = { id, agencyId, destination };
     console.warn('Send trip data ', newTripData);
-  }
-
-  private datesRange(form: AbstractControl): ValidationErrors | null {
-    const startDate = form.get('startDate');
-    const endDate = form.get('endDate');
-    if (!startDate || !endDate) {
-      return {
-        datesRange: 'No dates provided',
-      };
-    }
-    if (startDate.value > endDate.value) {
-      return {
-        datesRange: 'Dates are not in a range',
-      };
-    }
-    return null;
   }
 
   public getDatesRangeMessage() {
