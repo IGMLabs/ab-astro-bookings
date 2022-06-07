@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { TransformationsService } from 'src/app/core/utils/transformations.service';
 
 @Component({
   selector: 'app-new-agency-form',
@@ -24,7 +25,7 @@ export class NewAgencyForm implements OnInit {
   ];
   public statuses = ['Active', 'Pending'];
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private ts: TransformationsService) {
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       range: new FormControl('', [Validators.required]),
@@ -61,13 +62,9 @@ export class NewAgencyForm implements OnInit {
 
   public onSubmitClick() {
     const { name, range, status } = this.form.value;
-    const id = this.getDashId(name);
+    const id = this.ts.getDashId(name);
     const newAgencyData = { id, name, range, status };
     console.warn('Send agency data ', newAgencyData);
-  }
-
-  private getDashId(str: string): string {
-    return str.toLocaleLowerCase().replace(/ /g, '-');
   }
 
   private getControl(controlName: string): AbstractControl | null {

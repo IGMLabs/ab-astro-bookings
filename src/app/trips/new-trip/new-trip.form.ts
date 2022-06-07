@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
 import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
+import { TransformationsService } from 'src/app/core/utils/transformations.service';
 
 /**
  *
@@ -54,7 +55,8 @@ export class NewTripForm implements OnInit {
   constructor(
     formBuilder: FormBuilder,
     fvs: FormValidationsService,
-    public fms: FormMessagesService
+    private fms: FormMessagesService,
+    private ts: TransformationsService
   ) {
     this.form = formBuilder.group(
       {
@@ -92,7 +94,7 @@ export class NewTripForm implements OnInit {
 
   public onSubmitClick() {
     const { agencyId, destination } = this.form.value;
-    const id = this.getDashId(agencyId + ' ' + destination);
+    const id = this.ts.getDashId(agencyId + ' ' + destination);
     const newTripData = { id, agencyId, destination };
     console.warn('Send trip data ', newTripData);
   }
@@ -102,10 +104,6 @@ export class NewTripForm implements OnInit {
     if (!errors) return '';
     if (errors['datesRange']) return errors['datesRange'];
     return '';
-  }
-
-  private getDashId(str: string): string {
-    return str.toLocaleLowerCase().replace(/ /g, '-');
   }
 
   ngOnInit(): void {}
