@@ -6,7 +6,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
 import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
+import { TransformationsService } from 'src/app/core/utils/transformations.service';
 
 @Component({
   selector: 'app-register-form',
@@ -16,7 +18,12 @@ import { FormValidationsService } from 'src/app/core/forms/form-validations.serv
 export class RegisterForm implements OnInit {
   public form: FormGroup;
 
-  constructor(formBuilder: FormBuilder, fvs: FormValidationsService) {
+  constructor(
+    formBuilder: FormBuilder,
+    fvs: FormValidationsService,
+    private fms: FormMessagesService,
+    private ts: TransformationsService
+  ) {
     this.form = formBuilder.group(
       {
         name: new FormControl('', [
@@ -43,32 +50,15 @@ export class RegisterForm implements OnInit {
   }
 
   public hasError(controlName: string): boolean {
-    const control = this.getControl(controlName);
-    if (!control) return false;
-    return control.invalid;
+    return this.fms.hasError(this.form, controlName);
   }
 
   public mustShowMessage(controlName: string): boolean {
-    const control = this.getControl(controlName);
-    if (!control) return false;
-    return control.touched && control.invalid;
+    return this.fms.mustShowMessage(this.form, controlName);
   }
 
   public getErrorMessage(controlName: string): string {
-    const control = this.getControl(controlName);
-    if (!control) return '';
-    if (!control.errors) return '';
-    const errors = control.errors;
-    let errorMessage = '';
-    errorMessage += errors['required'] ? '🔥 Field is required' : '';
-    errorMessage += errors['email'] ? '🔥 Should be an email address' : '';
-    errorMessage += errors['minlength']
-      ? `🔥 More than ${errors['minlength'].requiredLength} chars`
-      : '';
-    errorMessage += errors['maxlength']
-      ? `🔥 Less than ${errors['maxlength'].requiredLength} chars`
-      : '';
-    return errorMessage;
+    return this.fms.getErrorMessage(this.form, controlName);
   }
 
   public getPasswordMatchMessage() {
