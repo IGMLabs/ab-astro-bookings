@@ -24,7 +24,34 @@
              [attr.aria-invalid]="hasError('destination')">
       <small *ngIf="mustShowMessage('destination')">{{ getErrorMessage('destination') }}</small>
     </div>
-
+    <div>
+      <label for="places"> Places </label>
+      <input name="places"
+             id="places"
+             type="number"
+             formControlName="places"
+             [attr.aria-invalid]="hasError('places')">
+      <small *ngIf="mustShowMessage('places')">{{ getErrorMessage('places') }}</small>
+    </div>
+    <div>
+      <label for="startDate"> Start Date </label>
+      <input name="startDate"
+             id="startDate"
+             type="date"
+             formControlName="startDate"
+             [attr.aria-invalid]="hasError('startDate')">
+      <small *ngIf="mustShowMessage('startDate')">{{ getErrorMessage('startDate') }}</small>
+    </div>
+    <div>
+      <label for="endDate"> End Date </label>
+      <input name="endDate"
+             id="endDate"
+             type="date"
+             formControlName="endDate"
+             [attr.aria-invalid]="hasError('endDate')">
+      <small *ngIf="mustShowMessage('endDate')">{{ getErrorMessage('endDate') }}</small>
+    </div>
+    <small>{{ getDatesRangeMessage() }}</small>
   </fieldset>
   <div>
     <button type="submit"

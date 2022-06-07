@@ -4,6 +4,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  ValidationErrors,
   Validators,
 } from '@angular/forms';
 
@@ -51,14 +52,26 @@ export class NewTripForm implements OnInit {
   ];
 
   constructor(formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      agencyId: new FormControl('', [Validators.required]),
-      destination: new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(20),
-      ]),
-    });
+    this.form = formBuilder.group(
+      {
+        agencyId: new FormControl('', [Validators.required]),
+        destination: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(20),
+        ]),
+        places: new FormControl(1, [
+          Validators.required,
+          Validators.min(1),
+          Validators.max(10),
+        ]),
+        startDate: new FormControl(),
+        endDate: new FormControl('03/08/2002'),
+      },
+      {
+        validators: [this.datesRange],
+      }
+    );
   }
 
   public hasError(controlName: string): boolean {
@@ -94,10 +107,37 @@ export class NewTripForm implements OnInit {
   }
 
   public onSubmitClick() {
-    // const { name, range, status } = this.form.value;
-    // const id = this.getDashId(name);
-    // const newAgencyData = { id, name, range, status };
-    // console.warn('Send agency data ', newAgencyData);
+    const { agencyId, destination } = this.form.value;
+    const id = this.getDashId(agencyId + ' ' + destination);
+    const newTripData = { id, agencyId, destination };
+    console.warn('Send trip data ', newTripData);
+  }
+
+  private datesRange(form: AbstractControl): ValidationErrors | null {
+    const startDate = form.get('startDate');
+    const endDate = form.get('endDate');
+    if (!startDate || !endDate) {
+      return {
+        datesRange: 'No dates provided',
+      };
+    }
+    if (startDate.value > endDate.value) {
+      return {
+        datesRange: 'Dates are not in a range',
+      };
+    }
+    return null;
+  }
+
+  public getDatesRangeMessage() {
+    const errors = this.form.errors;
+    if (!errors) return '';
+    if (errors['datesRange']) return errors['datesRange'];
+    return '';
+  }
+
+  private getDashId(str: string): string {
+    return str.toLocaleLowerCase().replace(/ /g, '-');
   }
 
   ngOnInit(): void {}
