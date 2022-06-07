@@ -66,9 +66,19 @@
 
 - [x] Create a form for the contact page
 - [x] Create a form for the register page
-- [ ] Create a form for a new Agency
+- [x] Create a form for a new Agency
 
 > Student tasks:
 
-- [ ] Create a form for the login page
+- [x] Create a form for the login page
 - [ ] Create a form for a new Trip
+      localhost:4001/trips/trip/new
+      {
+      id: 'space-y-moon-1',
+      agencyId: 'space-y',
+      destination: 'The Moon', <2,20>
+      places: 14, <1,10>
+      startDate: '2023-01-01',
+      endDate: '2023-02-01',
+      flightPrice: 1200000 <1000000, 10000000>,
+      }
