@@ -80,5 +80,5 @@
 
 > Student tasks:
 
-- [ ] Use services on each form
+- [x] Use services on each form
 - [x] Create a service for common utilities (getDashId)

@@ -75,5 +75,5 @@ ng g c trips/new-trip --type=form
 
 ng g s core/forms/form-validations
 ng g s core/forms/form-messages
-
+ng g s core/utils/transformations
 ```
