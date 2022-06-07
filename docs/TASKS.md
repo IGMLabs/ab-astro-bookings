@@ -71,14 +71,9 @@
 > Student tasks:
 
 - [x] Create a form for the login page
-- [ ] Create a form for a new Trip
-      localhost:4001/trips/trip/new
-      {
-      id: 'space-y-moon-1',
-      agencyId: 'space-y',
-      destination: 'The Moon', <2,20>
-      places: 14, <1,10>
-      startDate: '2023-01-01',
-      endDate: '2023-02-01',
-      flightPrice: 1200000 <1000000, 10000000>,
-      }
+- [x] Create a form for a new Trip
+
+## 5. Services
+
+- [x] Create a service to validate forms
+- [x] Create a service to manage form messages

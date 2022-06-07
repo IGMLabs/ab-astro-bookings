@@ -68,3 +68,12 @@ ng g c trips/new-trip --type=page
 ng g c trips/new-trip --type=form
 
 ```
+
+## 5. Services
+
+```bash
+
+ng g s core/forms/form-validations
+ng g s core/forms/form-messages
+
+```
