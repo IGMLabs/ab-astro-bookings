@@ -4,7 +4,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -53,6 +53,9 @@ export class NewAgencyForm implements OnInit {
     errorMessage += errors['minlength']
       ? `🔥 More than ${errors['minlength'].requiredLength} chars`
       : ' ';
+    errorMessage += errors['maxlength']
+      ? `🔥 Less than ${errors['maxlength'].requiredLength} chars`
+      : '';
     return errorMessage;
   }
 

@@ -1,0 +1,34 @@
+<form [formGroup]="form">
+  <fieldset>
+    <div>
+      <label for="agencyId"> Agency </label>
+      <select name="agencyId"
+              id="agencyId"
+              formControlName="agencyId"
+              [attr.aria-invalid]="hasError('agencyId')">
+        <option selected
+                value="">Select a agencyId</option>
+        <option *ngFor="let agency of agencies"
+                [value]="agency.id">
+          {{ agency.name }}
+        </option>
+      </select>
+      <small *ngIf="mustShowMessage('agencyId')">{{ getErrorMessage('agencyId') }}</small>
+    </div>
+    <div>
+      <label for="destination"> Destination </label>
+      <input name="destination"
+             id="destination"
+             type="text"
+             formControlName="destination"
+             [attr.aria-invalid]="hasError('destination')">
+      <small *ngIf="mustShowMessage('destination')">{{ getErrorMessage('destination') }}</small>
+    </div>
+
+  </fieldset>
+  <div>
+    <button type="submit"
+            (click)="onSubmitClick()"
+            [disabled]="form.invalid"> Send new trip data </button>
+  </div>
+</form>
