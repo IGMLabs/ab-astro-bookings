@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { IdNameApi } from 'src/app/core/api/id-name.api';
 import { IdName } from 'src/app/core/api/id-name.interface';
 import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
 import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
@@ -12,23 +13,19 @@ import { TransformationsService } from 'src/app/core/utils/transformations.servi
   styleUrls: ['./new-agency.form.css'],
 })
 export class NewAgencyForm extends FormBase implements OnInit {
-  public ranges: IdName[] = [
-    { id: 'Orbital', name: '🌎 Orbiting around the earth' },
-    {
-      id: 'Interplanetary',
-      name: '🌕 To the moon and other planets',
-    },
-    { id: 'Interstellar', name: '💫 Traveling to other stars' },
-  ];
-  public statuses = ['Active', 'Pending'];
+  public ranges: IdName[];
+  public statuses;
 
   constructor(
     formBuilder: FormBuilder,
     fvs: FormValidationsService,
     fms: FormMessagesService,
-    private ts: TransformationsService
+    private ts: TransformationsService,
+    idNameApi: IdNameApi
   ) {
     super(fms);
+    this.ranges = idNameApi.getRanges();
+    this.statuses = idNameApi.getStatuses();
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       range: new FormControl('', [Validators.required]),
