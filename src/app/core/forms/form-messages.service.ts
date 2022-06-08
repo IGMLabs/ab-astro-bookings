@@ -35,7 +35,7 @@ export class FormMessagesService {
     return errorMessage;
   }
 
-  private getControl(
+  public getControl(
     form: FormGroup,
     controlName: string
   ): AbstractControl | null {
