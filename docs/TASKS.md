@@ -87,5 +87,10 @@
 
 - [x] Use services on each form
 - [x] Create a service for common utilities (getDashId)
-- [ ] Create an interface for a trip object
-- [ ] Create a service to manage trips API
+- [x] Create an interface for a trip object
+- [x] Create a service to manage trips API
+
+## 6. Containers
+
+- [x] Use container/presenters pattern for AgenciesPage and AgenciesList
+- [x] Use container/presenters pattern for NewAgencyPage and NewAgencyForm
