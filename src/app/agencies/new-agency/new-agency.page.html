@@ -1,2 +1,4 @@
 <h2>Add a new agency</h2>
-<app-new-agency-form></app-new-agency-form>
+<app-new-agency-form [ranges]="ranges"
+                     [statuses]="statuses"
+                     (save)="onSave($event)"></app-new-agency-form>
