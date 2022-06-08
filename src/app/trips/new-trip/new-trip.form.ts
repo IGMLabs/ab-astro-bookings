@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AgenciesApi } from 'src/app/core/api/agencies.api';
 import { Agency } from 'src/app/core/api/agency.interface';
+import { TripsApi } from 'src/app/core/api/trips.api';
 import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
 import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
 import { FormBase } from 'src/app/core/forms/form.base';
@@ -34,7 +35,8 @@ export class NewTripForm extends FormBase implements OnInit {
     fvs: FormValidationsService,
     fms: FormMessagesService,
     private ts: TransformationsService,
-    agenciesApi: AgenciesApi
+    agenciesApi: AgenciesApi,
+    private tripsApi: TripsApi
   ) {
     super(fms);
     this.agencies = agenciesApi.getAll();
@@ -63,8 +65,9 @@ export class NewTripForm extends FormBase implements OnInit {
   public onSubmitClick() {
     const { agencyId, destination } = this.form.value;
     const id = this.ts.getDashId(agencyId + ' ' + destination);
-    const newTripData = { id, agencyId, destination };
+    const newTripData = { id, agencyId, destination, status: 'Pending' };
     console.warn('Send trip data ', newTripData);
+    this.tripsApi.post(newTripData);
   }
 
   public getDatesRangeMessage() {
