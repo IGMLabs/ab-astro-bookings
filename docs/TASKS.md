@@ -77,8 +77,15 @@
 
 - [x] Create a service to validate forms
 - [x] Create a service to manage form messages
+- [ ] Create a class as a base to form components
+- [ ] Create a service for common utilities
+- [ ] Create a service to manage agencies
+- [ ] Create an interface for an agency object
+- [ ] Create an interface for id name pairs
 
 > Student tasks:
 
 - [x] Use services on each form
 - [x] Create a service for common utilities (getDashId)
+- [ ] Create a service to manage trips
+- [ ] Create an interface for a trip object
