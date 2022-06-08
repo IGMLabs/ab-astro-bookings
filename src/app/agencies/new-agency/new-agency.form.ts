@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AgenciesApi } from 'src/app/core/api/agencies.api';
 import { IdNameApi } from 'src/app/core/api/id-name.api';
 import { IdName } from 'src/app/core/api/id-name.interface';
 import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
@@ -21,7 +22,8 @@ export class NewAgencyForm extends FormBase implements OnInit {
     fvs: FormValidationsService,
     fms: FormMessagesService,
     private ts: TransformationsService,
-    idNameApi: IdNameApi
+    idNameApi: IdNameApi,
+    private agenciesApi: AgenciesApi
   ) {
     super(fms);
     this.ranges = idNameApi.getRanges();
@@ -38,6 +40,7 @@ export class NewAgencyForm extends FormBase implements OnInit {
     const id = this.ts.getDashId(name);
     const newAgencyData = { id, name, range, status };
     console.warn('Send agency data ', newAgencyData);
+    this.agenciesApi.post(newAgencyData);
   }
 
   ngOnInit(): void {}

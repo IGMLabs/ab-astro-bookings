@@ -29,4 +29,12 @@ export class AgenciesApi {
   public getAll() {
     return this.agencies;
   }
+
+  public getById(id: string) {
+    return this.agencies.find((a) => a.id === id);
+  }
+
+  public post(agency: Agency) {
+    this.agencies.push(agency);
+  }
 }
