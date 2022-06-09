@@ -13,7 +13,7 @@ export class AgencyPage implements OnInit {
 
   constructor(route: ActivatedRoute, agenciesApi: AgenciesApi) {
     this.agencyId = route.snapshot.paramMap.get('id') || '';
-    agenciesApi.getById(this.agencyId).subscribe((data) => {
+    agenciesApi.getById$(this.agencyId).subscribe((data) => {
       this.agency = data;
     });
   }

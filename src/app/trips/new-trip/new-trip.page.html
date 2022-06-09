@@ -1,1 +1,3 @@
-<app-new-trip-form></app-new-trip-form>
+<app-new-trip-form *ngIf="agencies$ | async as agencies"
+                   [agencies]="agencies"
+                   (save)="onSave($event)"></app-new-trip-form>

@@ -18,7 +18,7 @@ export class NewAgencyPage implements OnInit {
   }
 
   onSave(newAgencyData: Agency) {
-    this.agenciesApi.post(newAgencyData).subscribe();
+    this.agenciesApi.post$(newAgencyData).subscribe();
   }
 
   ngOnInit(): void {}

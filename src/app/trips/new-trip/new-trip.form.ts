@@ -1,26 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AgenciesApi } from 'src/app/core/api/agencies.api';
 import { Agency } from 'src/app/core/api/agency.interface';
-import { TripsApi } from 'src/app/core/api/trips.api';
+import { Trip } from 'src/app/core/api/trip.interface';
 import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
 import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
 import { FormBase } from 'src/app/core/forms/form.base';
 import { TransformationsService } from 'src/app/core/utils/transformations.service';
-
-/**
- *
- * {
-      id: 'space-y-moon-1',
-      agencyId: 'space-y',
-      destination: 'The Moon', <2,20>
-      places: 14, <1,10>
-      startDate: '2023-01-01',
-      endDate: '2023-02-01',
-      flightPrice: 1200000 <1000000, 10000000>,
-      }
- *
- */
 
 @Component({
   selector: 'app-new-trip-form',
@@ -28,18 +13,15 @@ import { TransformationsService } from 'src/app/core/utils/transformations.servi
   styleUrls: ['./new-trip.form.css'],
 })
 export class NewTripForm extends FormBase implements OnInit {
-  public agencies: Agency[] = [];
-
+  @Input() public agencies: Agency[] = [];
+  @Output() public save = new EventEmitter<Partial<Trip>>();
   constructor(
     formBuilder: FormBuilder,
     fvs: FormValidationsService,
     fms: FormMessagesService,
-    private ts: TransformationsService,
-    agenciesApi: AgenciesApi,
-    private tripsApi: TripsApi
+    private ts: TransformationsService
   ) {
     super(fms);
-    agenciesApi.getAll$().subscribe((data) => (this.agencies = data));
     this.form = formBuilder.group(
       {
         agencyId: new FormControl('', [Validators.required]),
@@ -67,7 +49,7 @@ export class NewTripForm extends FormBase implements OnInit {
     const id = this.ts.getDashId(agencyId + ' ' + destination);
     const newTripData = { id, agencyId, destination, status: 'Waiting' };
     console.warn('Send trip data ', newTripData);
-    this.tripsApi.post(newTripData);
+    this.save.emit(newTripData);
   }
 
   public getDatesRangeMessage() {
