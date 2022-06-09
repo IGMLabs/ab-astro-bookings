@@ -82,3 +82,17 @@ ng g class core/forms/form --type=base
 ng g i core/api/agency --type=interface
 ng g i core/api/id-name --type=interface
 ```
+
+## 6. Containers
+
+```bash
+ng g c agencies/agency --type=view
+```
+
+## 7. Http
+
+```bash
+npm i -D json-server json-server-auth
+npm run api
+
+```
