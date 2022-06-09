@@ -13,7 +13,9 @@ export class AgencyPage implements OnInit {
 
   constructor(route: ActivatedRoute, agenciesApi: AgenciesApi) {
     this.agencyId = route.snapshot.paramMap.get('id') || '';
-    this.agency = agenciesApi.getById(this.agencyId);
+    agenciesApi.getById(this.agencyId).subscribe((data) => {
+      this.agency = data;
+    });
   }
 
   ngOnInit(): void {}

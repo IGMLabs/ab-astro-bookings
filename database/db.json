@@ -19,6 +19,12 @@
       "name": "Virgin Way",
       "range": "Orbital",
       "status": "Pending"
+    },
+    {
+      "id": "chanta-nasa",
+      "name": "Chanta Nasa",
+      "range": "Orbital",
+      "status": "Active"
     }
   ],
   "trips": [

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Agency } from './agency.interface';
 
@@ -5,36 +6,17 @@ import { Agency } from './agency.interface';
   providedIn: 'root',
 })
 export class AgenciesApi {
-  private agencies: Agency[] = [
-    {
-      id: 'space-y',
-      name: 'Space Y',
-      range: 'Interplanetary',
-      status: 'Active',
-    },
-    {
-      id: 'green-origin',
-      name: 'Green Origin',
-      range: 'Orbital',
-      status: 'Active',
-    },
-    {
-      id: 'virgin-way',
-      name: 'Virgin Way',
-      range: 'Orbital',
-      status: 'Pending',
-    },
-  ];
+  constructor(private http: HttpClient) {}
 
   public getAll() {
-    return this.agencies;
+    return this.http.get<Agency[]>('http://localhost:3000/agencies');
   }
 
   public getById(id: string) {
-    return this.agencies.find((a) => a.id === id);
+    return this.http.get<Agency>('http://localhost:3000/agencies/' + id);
   }
 
   public post(agency: Agency) {
-    this.agencies.push(agency);
+    return this.http.post('http://localhost:3000/agencies', agency);
   }
 }

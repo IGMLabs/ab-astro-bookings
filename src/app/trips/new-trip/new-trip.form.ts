@@ -28,7 +28,7 @@ import { TransformationsService } from 'src/app/core/utils/transformations.servi
   styleUrls: ['./new-trip.form.css'],
 })
 export class NewTripForm extends FormBase implements OnInit {
-  public agencies: Agency[];
+  public agencies: Agency[] = [];
 
   constructor(
     formBuilder: FormBuilder,
@@ -39,7 +39,7 @@ export class NewTripForm extends FormBase implements OnInit {
     private tripsApi: TripsApi
   ) {
     super(fms);
-    this.agencies = agenciesApi.getAll();
+    agenciesApi.getAll().subscribe((data) => (this.agencies = data));
     this.form = formBuilder.group(
       {
         agencyId: new FormControl('', [Validators.required]),
