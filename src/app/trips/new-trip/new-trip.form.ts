@@ -39,7 +39,7 @@ export class NewTripForm extends FormBase implements OnInit {
     private tripsApi: TripsApi
   ) {
     super(fms);
-    agenciesApi.getAll().subscribe((data) => (this.agencies = data));
+    agenciesApi.getAll$().subscribe((data) => (this.agencies = data));
     this.form = formBuilder.group(
       {
         agencyId: new FormControl('', [Validators.required]),

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Agency } from './agency.interface';
 
 @Injectable({
@@ -8,8 +9,8 @@ import { Agency } from './agency.interface';
 export class AgenciesApi {
   constructor(private http: HttpClient) {}
 
-  public getAll() {
-    return this.http.get<Agency[]>('http://localhost:3000/agencies');
+  public getAll$(): Observable<Agency[]> {
+    return this.http.get<Agency[]>('http://localhost:2000/agencies');
   }
 
   public getById(id: string) {

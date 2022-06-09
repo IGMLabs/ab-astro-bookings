@@ -2,5 +2,19 @@
   <a role="button"
      routerLink="agency/new">✨ Add a new agency</a>
 </nav>
-<app-agencies-list [agencies]="agencies"
-                   (reload)="onReload()"></app-agencies-list>
+
+
+<!-- <app-agencies-list *ngIf="agencies ; else waiting "
+                   [agencies]="agencies"
+                   (reload)="onReload()">
+</app-agencies-list> -->
+
+<app-agencies-list *ngIf="(agencies$ | async) as agencies ; else waiting "
+                   [agencies]="agencies"
+                   (reload)="onReload()">
+</app-agencies-list>
+
+<ng-template #waiting>
+  <h4>Waiting...</h4>
+</ng-template>
+<h4 *ngIf="error"> Ha habido un error </h4>
