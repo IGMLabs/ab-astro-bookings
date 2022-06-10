@@ -94,3 +94,9 @@
 
 - [x] Use container/presenters pattern for AgenciesPage and AgenciesList
 - [x] Use container/presenters pattern for NewAgencyPage and NewAgencyForm
+
+## 7. Http
+
+## 8. Pro
+
+- [x] Base class for CRUD operations

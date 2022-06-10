@@ -22,3 +22,26 @@ export class FormBase {
     return this.fms.getControl(this.form, controlName);
   }
 }
+
+class Base {
+  p1 = 1;
+
+  constructor(a: string) {
+    console.log('hola' + a);
+  }
+
+  m1() {
+    console.log(this.p1);
+  }
+}
+
+class Extendida extends Base {
+  constructor() {
+    super('');
+  }
+
+  m2() {
+    console.log(this.p1);
+    this.m1();
+  }
+}

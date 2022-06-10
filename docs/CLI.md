@@ -96,3 +96,9 @@ npm i -D json-server json-server-auth
 npm run api
 
 ```
+
+## 8. Pro
+
+```bash
+ng g class core/api/crud --type=api
+```
