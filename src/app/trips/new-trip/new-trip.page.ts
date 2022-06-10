@@ -17,7 +17,7 @@ export class NewTripPage implements OnInit {
   }
 
   public onSave(newTrip: Partial<Trip>) {
-    this.tripsApi.post(newTrip);
+    this.tripsApi.post$(newTrip).subscribe();
   }
 
   ngOnInit(): void {}

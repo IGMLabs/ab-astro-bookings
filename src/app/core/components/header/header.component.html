@@ -8,6 +8,11 @@
       </a>
     </li>
   </ul>
+  <span>
+    <span *ngIf="isWorking"> 👷🏼 </span>
+    <span *ngIf="!isWorking"> 😴 </span>
+    <span *ngIf="hasError"> 💣 </span>
+  </span>
   <ul>
     <li>
       <a routerLink="agencies">➡️ Agencies</a>

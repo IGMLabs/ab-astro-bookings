@@ -52,6 +52,7 @@ export abstract class CrudApi<ApiType> {
     this.statusStore.setState({ isWorking: false, errorMessage: '' });
   }
   private notifyError(message: string) {
+    console.warn({ isWorking: false, errorMessage: message });
     this.statusStore.setState({ isWorking: false, errorMessage: message });
   }
 }
