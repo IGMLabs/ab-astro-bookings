@@ -8,10 +8,10 @@ import { TripsApi } from 'src/app/core/api/trips.api';
   styleUrls: ['./trips.list.css'],
 })
 export class TripsList implements OnInit {
-  trips: Trip[];
+  trips: Trip[] = [];
   public reloading = false;
   constructor(tripsApi: TripsApi) {
-    this.trips = tripsApi.getAll();
+    tripsApi.getAll().subscribe((trips) => (this.trips = trips));
   }
   public reload(list: string) {
     this.reloading = true;

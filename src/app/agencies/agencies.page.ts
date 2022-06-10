@@ -25,20 +25,14 @@ export class AgenciesPage implements OnInit {
   // };
 
   constructor(private agenciesApi: AgenciesApi) {
-    // this.agenciesApi.getAll$().subscribe(this.subscriptor);
+    //this.agenciesApi.getAll$().subscribe(this.subscriptor);
     this.agencies$ = this.agenciesApi.getAll$();
   }
 
   onReload() {
-    this.agenciesApi.getAll$().subscribe(
-      (data) => {
-        // this.agencies = data;
-      },
-      (err) => {
-        console.log('hay un fallo', err.message);
-        this.error = true;
-      }
-    );
+    this.agenciesApi.getAll$().subscribe((data) => {
+      //this.agencies = data;
+    });
   }
 
   ngOnInit(): void {}
