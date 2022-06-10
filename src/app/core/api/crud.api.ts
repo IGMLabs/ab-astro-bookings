@@ -6,23 +6,23 @@ export abstract class CrudApi<ApiType> {
 
   constructor(private http: HttpClient, private endPoint: string) {}
 
-  public getAll() {
+  public getAll$() {
     return this.http.get<ApiType[]>(this.url);
   }
 
-  public getById(id: string) {
+  public getById$(id: string) {
     return this.http.get<ApiType>(this.url + id);
   }
 
-  public post(payload: Partial<ApiType>) {
+  public post$(payload: Partial<ApiType>) {
     return this.http.post<ApiType>(this.url, payload);
   }
 
-  public put(id: string, payload: Partial<ApiType>) {
+  public put$(id: string, payload: Partial<ApiType>) {
     return this.http.put<ApiType>(this.url + id, payload);
   }
 
-  public delete(id: string) {
+  public delete$(id: string) {
     return this.http.delete<ApiType>(this.url + id);
   }
 }
