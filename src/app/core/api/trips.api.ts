@@ -9,6 +9,6 @@ import { Trip } from './trip.interface';
 })
 export class TripsApi extends CrudApi<Trip> {
   constructor(http: HttpClient, statusStore: StatusStore) {
-    super(http, 'tripps', statusStore);
+    super(http, 'trips', statusStore);
   }
 }

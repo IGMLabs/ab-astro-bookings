@@ -100,3 +100,11 @@
 ## 8. Pro
 
 - [x] Base class for CRUD operations
+
+## 9. Practice
+
+- [ ] Create CRUD functionality for Bookings
+- [ ] Route ./bookings/\*\*
+- [ ] bookings.list
+- [ ] bookings.form
+- [ ] booking.view
