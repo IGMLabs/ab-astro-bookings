@@ -30,13 +30,13 @@ export class EmailControl
 
   constructor(fms: FormMessagesService) {
     super(fms);
-    super.form = new FormGroup({
+    this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
 
   writeValue(value: any): void {
-    super.form.setValue({ email: value }, { emitEvent: false });
+    this.form.setValue({ email: value }, { emitEvent: false });
   }
   registerOnChange(changeCallBack: any): void {
     this.form.valueChanges.subscribe(changeCallBack);
