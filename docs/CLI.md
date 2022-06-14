@@ -110,5 +110,5 @@ ng g class core/api/crud --type=api
 ```bash
 
 ng g c shared/controls/email --type=control --export
-
+ng g c shared/controls/template --type=control --export
 ```

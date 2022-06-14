@@ -1,0 +1,22 @@
+<div>
+  <label [for]="formControlName">{{ label | uppercase }}</label>
+  <input *ngIf="inputType!='textArea'"
+         [type]="inputType"
+         [id]="formControlName"
+         [name]="formControlName"
+         [value]="value"
+         [placeholder]="placeholder"
+         [attr.aria-invalid]="hasError(formControlName)"
+         (keyup)="onKeyUp($event)"
+         (blur)="touchedCallBack()">
+  <textarea *ngIf="inputType=='textArea'"
+            [id]="formControlName"
+            [name]="formControlName"
+            [value]="value"
+            [placeholder]="placeholder"
+            [attr.aria-invalid]="hasError('message')"
+            (keyup)="onKeyUp($event)"
+            (blur)="touchedCallBack()"></textarea>
+  <small *ngIf="
+         mustShowMessage(formControlName)">{{ getErrorMessage(formControlName) }} </small>
+</div>
