@@ -111,4 +111,6 @@
 
 ## 10 Form CVA
 
-- [ ] Email Control Value Accessor
+- [x] Email Control Value Accessor
+- [x] Template Control Value Accessor
+- [ ] Search Control
