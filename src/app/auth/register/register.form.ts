@@ -18,13 +18,13 @@ export class RegisterForm extends FormBase implements OnInit {
     private ts: TransformationsService
   ) {
     super(fms);
-    this.form = formBuilder.group(
+    super.form = formBuilder.group(
       {
         name: new FormControl('', [
           Validators.required,
           Validators.minLength(2),
         ]),
-        email: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl(''),
         password: new FormControl('', [
           Validators.required,
           Validators.minLength(4),

@@ -102,3 +102,13 @@ npm run api
 ```bash
 ng g class core/api/crud --type=api
 ```
+
+## 9. Practice
+
+## 10. Forms CVA
+
+```bash
+
+ng g c shared/controls/email --type=control --export
+
+```
