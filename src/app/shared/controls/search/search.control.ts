@@ -34,13 +34,13 @@ export class SearchControl implements OnInit {
     const nativeSource$ = fromEvent(this.searchInput.nativeElement, 'keyup');
     this.searchInput$ = nativeSource$.pipe(
       map((event) => (event as any).target.value as string),
-      tap((searchTerm) => console.log('antes:', searchTerm)),
+      // tap((searchTerm) => console.log('antes:', searchTerm)),
       debounceTime(500),
       tap((searchTerm) => console.log('después: ', searchTerm)),
-      filter((searchText) => searchText.length > 2),
-      tap((searchTerm) => console.log('filtrado: ', searchTerm)),
+      filter((searchText) => searchText.length > 1),
+      // tap((searchTerm) => console.log('filtrado: ', searchTerm)),
       distinctUntilChanged(),
-      tap((searchTerm) => console.log('cambiado: ', searchTerm)),
+      tap((searchTerm) => console.log('para buscar: ', searchTerm)),
       tap((searchTerm) => this.search.emit(searchTerm))
     );
   }
