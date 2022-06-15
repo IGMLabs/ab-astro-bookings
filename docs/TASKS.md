@@ -118,3 +118,5 @@
 ## 11 Router Pro
 
 - [x] Search trips fro agency using Query Params observable
+
+## 12 Auth

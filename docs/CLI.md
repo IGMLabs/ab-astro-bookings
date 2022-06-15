@@ -113,3 +113,7 @@ ng g c shared/controls/email --type=control --export
 ng g c shared/controls/template --type=control --export
 ng g c shared/controls/search --type=control --export
 ```
+
+## 11. Pro
+
+## 12. Auth
