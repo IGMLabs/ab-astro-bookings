@@ -25,6 +25,8 @@ export class AgenciesPage implements OnInit {
     this.agencies$ = this.search$.pipe(
       // map((searchTerm) => this.agenciesApi.getByText$(searchTerm))
       switchMap((searchTerm) => this.agenciesApi.getByText$(searchTerm))
+      // concatMap((searchTerm) => this.agenciesApi.getByText$(searchTerm))
+      // exhaustMap((searchTerm) => this.agenciesApi.getByText$(searchTerm))
     );
   }
 
