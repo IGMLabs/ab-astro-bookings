@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { AgenciesApi } from '../core/api/agencies.api';
 import { Agency } from '../core/api/agency.interface';
 
@@ -9,19 +9,10 @@ import { Agency } from '../core/api/agency.interface';
   styleUrls: ['./agencies.page.css'],
 })
 export class AgenciesPage implements OnInit {
-  public agencies!: Agency[];
   public agencies$: Observable<Agency[]>;
-  private search$: Subject<string> = new Subject();
-
-  public error: boolean = false;
+  private search$: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor(private agenciesApi: AgenciesApi) {
-    this.agencies$ = this.agenciesApi.getAll$();
-
-    this.search$.subscribe(
-      (searchTerm) => (this.agencies$ = this.agenciesApi.getByText$(searchTerm))
-    );
-
     this.agencies$ = this.search$.pipe(
       // map((searchTerm) => this.agenciesApi.getByText$(searchTerm))
       switchMap((searchTerm) => this.agenciesApi.getByText$(searchTerm))
@@ -31,16 +22,11 @@ export class AgenciesPage implements OnInit {
   }
 
   onReload() {
-    this.agencies$ = this.agenciesApi.getAll$();
-
-    // this.agenciesApi
-    //   .getAll$()
-    //   .subscribe((agencies) => (this.agencies = agencies));
+    this.search$.next('');
   }
 
   onSearch(searchTerm: string) {
     this.search$.next(searchTerm);
-    // this.agencies$ = this.agenciesApi.getByText$(searchTerm);
   }
 
   ngOnInit(): void {}
