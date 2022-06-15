@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { StatusStore } from './status.store';
 
 export abstract class CrudApi<ApiType> {
-  private url = environment.apiUrl + this.endPoint + '/';
+  protected url = environment.apiUrl + this.endPoint + '/';
 
   private statusPipe = pipe(
     tap(() => this.notifyIdle()),
@@ -15,8 +15,8 @@ export abstract class CrudApi<ApiType> {
   );
 
   constructor(
-    private http: HttpClient,
-    private endPoint: string,
+    protected http: HttpClient,
+    protected endPoint: string,
     protected statusStore: StatusStore
   ) {}
 

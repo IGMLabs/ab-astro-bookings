@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AgenciesApi } from '../core/api/agencies.api';
 import { Agency } from '../core/api/agency.interface';
 
@@ -11,28 +11,24 @@ import { Agency } from '../core/api/agency.interface';
 export class AgenciesPage implements OnInit {
   // public agencies!: Agency[];
   public agencies$: Observable<Agency[]>;
+  private search$: Subject<string> = new Subject();
 
   public error: boolean = false;
 
-  // private subscriptor = {
-  //   next: (data: Agency[]) => {
-  //      this.agencies = data;
-  //   },
-  //   error: (err: Error) => {
-  //     console.log('hay un fallo', err.message);
-  //     this.error = true;
-  //   },
-  // };
-
   constructor(private agenciesApi: AgenciesApi) {
-    //this.agenciesApi.getAll$().subscribe(this.subscriptor);
     this.agencies$ = this.agenciesApi.getAll$();
+    this.search$.subscribe(
+      (searchTerm) => (this.agencies$ = this.agenciesApi.getByText$(searchTerm))
+    );
   }
 
   onReload() {
-    this.agenciesApi.getAll$().subscribe((data) => {
-      //this.agencies = data;
-    });
+    this.agencies$ = this.agenciesApi.getAll$();
+  }
+
+  onSearch(searchTerm: string) {
+    this.search$.next(searchTerm);
+    // this.agencies$ = this.agenciesApi.getByText$(searchTerm);
   }
 
   ngOnInit(): void {}

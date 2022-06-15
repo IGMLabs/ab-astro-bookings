@@ -5,7 +5,7 @@
 
 <br>
 
-<app-search></app-search>
+<app-search (search)="onSearch($event)"></app-search>
 
 <app-agencies-list *ngIf="(agencies$ | async) as agencies ; else waiting "
                    [agencies]="agencies"
