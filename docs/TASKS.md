@@ -113,4 +113,8 @@
 
 - [x] Email Control Value Accessor
 - [x] Template Control Value Accessor
-- [ ] Search Control
+- [x] Search Control
+
+## 11 Router Pro
+
+- [x] Search trips fro agency using Query Params observable
