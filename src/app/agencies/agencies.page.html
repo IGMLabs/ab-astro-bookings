@@ -2,15 +2,17 @@
   <a role="button"
      routerLink="agency/new">✨ Add a new agency</a>
 </nav>
-
 <br>
-
 <app-search (search)="onSearch($event)"></app-search>
 
 <app-agencies-list *ngIf="(agencies$ | async) as agencies ; else waiting "
                    [agencies]="agencies"
                    (reload)="onReload()">
 </app-agencies-list>
+
+<app-trips-list *ngIf="(trips$ | async) as trips"
+                [trips]="trips">
+</app-trips-list>
 
 <ng-template #waiting>
   <h4>Waiting...</h4>

@@ -7,4 +7,6 @@
   <h4>Waiting...</h4>
 </ng-template>
 
-<app-trips-list></app-trips-list>
+<app-trips-list *ngIf="(trips$ | async) as trips ; else waiting "
+                [trips]="trips"
+                (reload)="onReload()"></app-trips-list>
