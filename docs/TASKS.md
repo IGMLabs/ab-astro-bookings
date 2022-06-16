@@ -121,4 +121,9 @@
 
 ## 12 Auth
 
-- [ ] RegisterForm -> RegisterPage -> AuthApi (interfaces)
+- [x] RegisterForm -> RegisterPage -> AuthApi (interfaces)
+- [x] ErrorInterceptor -> Log + Login
+- [x] AuthApi -> pipe -> accessToken
+- [x] AuthInterceptor -> AuthApi.accessToken -> request.headers['Authorization']
+- [ ] AuthGuard - > avoid load pages
+- [ ] StorageService
