@@ -63,6 +63,8 @@ ng g c agencies/new-agency --type=page
 ng g c agencies/new-agency --type=form
 
 
+ng g c auth/login --type=form
+
 ng g m trips/new-trip --module=trips --route=trip/new
 ng g c trips/new-trip --type=page
 ng g c trips/new-trip --type=form
@@ -117,3 +119,9 @@ ng g c shared/controls/search --type=control --export
 ## 11. Pro
 
 ## 12. Auth
+
+```
+ng g class auth/api/auth --type=api
+ng g i auth/api/register --type=interface
+ng g i auth/api/login --type=interface
+```

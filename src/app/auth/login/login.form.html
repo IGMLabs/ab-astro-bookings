@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <app-email-control formControlName="email"></app-email-control>
+  <div>
+    <label for="password">Your password </label>
+    <input type="password"
+           id="password"
+           name="password"
+           formControlName="password"
+           placeholder="Your password"
+           [attr.aria-invalid]="hasError('password')">
+    <small *ngIf="mustShowMessage('password')">{{ getErrorMessage('password') }} </small>
+  </div>
+
+  <button [disabled]="form.invalid"
+          (click)="onSave()">Save</button>
+</form>
