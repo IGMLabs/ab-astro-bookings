@@ -120,3 +120,5 @@
 - [x] Search trips fro agency using Query Params observable
 
 ## 12 Auth
+
+- [ ] RegisterForm -> RegisterPage -> AuthApi (interfaces)
