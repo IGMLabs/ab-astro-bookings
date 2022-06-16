@@ -126,5 +126,6 @@ ng g i auth/api/register --type=interface
 ng g i auth/api/login --type=interface
 
 ng g interceptor core/api/error
+ng g interceptor auth/api/auth
 
 ```
