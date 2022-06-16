@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "albertobasalo@hotmail.com",
+      "password": "$2a$10$XmhheMN/c0uDF.bs2cJzlO4GJUD51ybHwv4rnY5O5517DsEZ6Snaa",
+      "name": "Alberto Basalo",
+      "id": 1
+    }
+  ],
   "bookings": [],
   "agencies": [
     {

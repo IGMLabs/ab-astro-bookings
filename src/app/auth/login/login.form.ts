@@ -22,8 +22,8 @@ export class LoginForm extends FormBase implements OnInit {
   ) {
     super(fms);
     super.form = formBuilder.group({
-      email: new FormControl(''),
-      password: new FormControl('', [
+      email: new FormControl('albertobasalo@hotmail.com'),
+      password: new FormControl('1234', [
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(10),

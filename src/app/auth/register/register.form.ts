@@ -23,22 +23,22 @@ export class RegisterForm extends FormBase implements OnInit {
     super(fms);
     super.form = formBuilder.group(
       {
-        name: new FormControl('', [
+        name: new FormControl('Alberto Basalo', [
           Validators.required,
           Validators.minLength(2),
         ]),
-        email: new FormControl(''),
-        password: new FormControl('', [
+        email: new FormControl('albertobasalo@hotmail.com'),
+        password: new FormControl('1234', [
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(10),
         ]),
-        confirmPassword: new FormControl('', [
+        confirmPassword: new FormControl('1234', [
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(10),
         ]),
-        acceptTerms: new FormControl(false, [Validators.requiredTrue]),
+        acceptTerms: new FormControl(true, [Validators.requiredTrue]),
       },
       {
         validators: [fvs.passwordMatch],
