@@ -11,6 +11,7 @@ import { TitleComponent } from './components/title/title.component';
 import { LocalStorage } from './utils/local-storage.service';
 import { SessionStorage } from './utils/session-storage.service';
 import { StorageBase } from './utils/storage.base';
+import { Storage } from './utils/storage.interface';
 
 @NgModule({
   declarations: [HeaderComponent, TitleComponent, FooterComponent],
@@ -21,9 +22,9 @@ import { StorageBase } from './utils/storage.base';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: StorageBase,
-      useFactory: () => {
-        if (environment.production) return SessionStorage;
-        else return LocalStorage;
+      useFactory: (): Storage => {
+        if (environment.production) return new SessionStorage();
+        else return new LocalStorage();
       },
     },
   ],
