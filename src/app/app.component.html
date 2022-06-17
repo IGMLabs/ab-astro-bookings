@@ -8,5 +8,9 @@
   </main>
   <footer>
     <app-footer></app-footer>
+    <section *ngIf="newVersion !=='' ">
+      <h1> {{ newVersion }} </h1>
+      <button (click)="onReload()">RELOAD</button>
+    </section>
   </footer>
 </body>
