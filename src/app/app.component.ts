@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SwUpdate, VersionEvent } from '@angular/service-worker';
+import { interval } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,6 +18,7 @@ export class AppComponent {
       }
     });
     swUpdate.checkForUpdate();
+    interval(1000 * 60 * 60).subscribe(() => swUpdate.checkForUpdate());
   }
   public onReload() {
     window.location.reload();

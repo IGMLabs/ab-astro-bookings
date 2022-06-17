@@ -2,8 +2,8 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "13:09",
-    "description": "swUpdate working..."
+    "version": "13:18",
+    "description": "🚀 swUpdate working 60m"
   },
   "assetGroups": [
     {
@@ -11,11 +11,8 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
           "/index.html",
-          "/manifest.webmanifest",
-          "/*.css",
-          "/*.js"
+          "/manifest.webmanifest"
         ]
       }
     },
@@ -25,6 +22,9 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
+          "/favicon.ico",
+          "/*.css",
+          "/*.js",
           "/assets/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
