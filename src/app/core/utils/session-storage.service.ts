@@ -1,4 +1,5 @@
-export class SessionStorage {
+import { Storage } from './storage.interface';
+export class SessionStorage implements Storage {
   private readonly tokenKey = 'accessToken';
 
   public getToken(): string {
