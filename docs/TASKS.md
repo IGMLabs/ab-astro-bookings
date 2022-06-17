@@ -125,5 +125,5 @@
 - [x] ErrorInterceptor -> Log + Login
 - [x] AuthApi -> pipe -> accessToken
 - [x] AuthInterceptor -> AuthApi.accessToken -> request.headers['Authorization']
-- [ ] AuthGuard - > avoid load pages
+- [x] AuthGuard - > avoid load pages
 - [ ] StorageService

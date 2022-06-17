@@ -129,6 +129,7 @@ ng g interceptor core/api/error
 ng g interceptor auth/api/auth
 
 
- ng g guard auth/api/authenticated --implements CanLoad
+ng g guard auth/api/authenticated --implements CanLoad
+ng g class core/utils/storage --type=base
 
 ```
