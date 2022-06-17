@@ -138,3 +138,7 @@ ng g class core/utils/local-storage --type=service
 ng g class core/utils/session-storage --type=service
 
 ```
+
+## 13. PWA
+
+ng add @angular/pwa@13.3.0
