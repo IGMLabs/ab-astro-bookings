@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build",
+    "pwa": "npm run build && npx http-server -p 8087 -c-1 dist/ab-astro-bookings",
     "watch": "ng build --watch --configuration development",
     "api": "json-server-auth ./database/db.json -r ./database/routes.json",
     "test": "ng test"

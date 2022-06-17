@@ -139,9 +139,9 @@ ng g class core/utils/session-storage --type=service
 
 ```
 
-## 13. PWA
+## 12. PWA
 
 ```
-ng add @angular/pwa@13.3.01
+ng add @angular/pwa@13.3.0
 npm i --force
 ```

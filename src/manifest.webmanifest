@@ -1,6 +1,6 @@
 {
-  "name": "ab-astro-bookings",
-  "short_name": "ab-astro-bookings",
+  "name": "hotusa-bookings",
+  "short_name": "hab",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
