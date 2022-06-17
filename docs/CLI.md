@@ -128,4 +128,7 @@ ng g i auth/api/login --type=interface
 ng g interceptor core/api/error
 ng g interceptor auth/api/auth
 
+
+ ng g guard auth/api/authenticated --implements CanLoad
+
 ```
