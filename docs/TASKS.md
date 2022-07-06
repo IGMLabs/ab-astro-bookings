@@ -128,6 +128,9 @@
 - [x] AuthGuard - > avoid load pages
 - [x] StorageService
 
-## 13 Practice
+## 13 Full stack
 
 - [ ] Replace json-server with nestjs server
+- [ ] Consume functional endpoints from current nestjs server
+- [ ] Use security with JWT
+- [ ] Clean up the code
