@@ -126,4 +126,8 @@
 - [x] AuthApi -> pipe -> accessToken
 - [x] AuthInterceptor -> AuthApi.accessToken -> request.headers['Authorization']
 - [x] AuthGuard - > avoid load pages
-- [ ] StorageService
+- [x] StorageService
+
+## 13 Practice
+
+- [ ] Replace json-server with nestjs server
